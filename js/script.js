@@ -1,29 +1,52 @@
 /* global $ */
 
 // BELOW Update the songs array with four of your favorites songs.
-var songs = [];
-// BELOW Add 4 More arrays to store images_links, artists, song lengths, and links for each song
-// Make sure they match the same order as your array above
-
-
+var songs = ["Chanda Pani","Salt","Lost Control","Natural"];
+var images = ["https://content-images.p-cdn.com/images/public/int/7/0/9/4/859729974907_500W_500H.jpg","https://vignette.wikia.nocookie.net/melanie-martinez/images/1/17/Ava_Max_-_Salt-0/revision/latest?cb=20180927213102","https://weraveyou.com/wp-content/uploads/2017/04/Alan_Walker_Ignite.jpg","https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Imagine_Dragons_Natural.png/220px-Imagine_Dragons_Natural.png"];
+var artists = ["By:Adam Ferello","By: Ava Max","By: Alan Walker","By: Imagine Dragons"]
+var lengths = ["2:41","3:03","3:43","3:10"]
+var links = ["https://www.youtube.com/watch?v=noX-670zjfs","https://www.youtube.com/watch?v=eNdUPI1ndC8","https://www.youtube.com/watch?v=-Ed-GNq2EyU","https://www.youtube.com/watch?v=0I647GU3Jsc"]
 
 function displaySongInfo(){
-    // BELOW Use forEach Loop to display the data from each of your arrays in the correct div
-
+    songs.forEach(function(x) {
+        $("#songs").append("<p>" + x + "</p>");
+    });
+     images.forEach(function(x) {
+        $("#images").append("<img src=" + x + ">");
+    });
+     artists.forEach(function(x) {
+        $("#artists").append("<p>" + x + "</p>");
+    });
+     lengths.forEach(function(x) {
+        $("#lengths").append("<p>" + x + "</p>");
+    });
+     links.forEach(function(x) {
+        $("#links").append("<a href=" + x + ">" + "Listen" + "</a>");
+    });
 }
 
 function emptySongInfo(){
     $("#songs").empty();
-    // Use jQuery to empty all of the remaining divs
+    $("#images").empty();
+    $("#artists").empty();
+    $("#links").empty();
+    $("#lengths").empty();
 
 
 }
 
 
 function addSongInfo(){
-    // BELOW write the code to add new items to each of the arrays.
-
-
+     var song = $("#song").val();
+    songs.push(song);
+    var image = $("#image").val();
+    images.push(image);
+    var link = $("#link").val();
+    links.push(link);
+    var length = $("#length").val();
+    lengths.push(length);
+    var artist = $("#artist").val();
+    artists.push(artist);
 }
 
 $("#add").click(function() {
